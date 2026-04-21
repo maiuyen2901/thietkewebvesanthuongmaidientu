@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CellphoneS - Trang chủ</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #d70018;
+      color: white;
+      padding: 12px 10px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .search-box {
+      margin-top: 8px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .banner {
+      height: 180px;
+      background: url("https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center/cover;
+      margin: 10px;
+      border-radius: 12px;
+    }
+
+    .services {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      margin: 10px;
+      padding: 12px 6px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin: 10px;
+      padding-bottom: 5px;
+      scrollbar-width: thin;
+    }
+
+    .category {
+      background: white;
+      padding: 12px 16px;
+      border-radius: 30px;
+      min-width: 100px;
+      text-align: center;
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 15px 10px 5px;
+      font-weight: bold;
+      color: #d70018;
+      font-size: 18px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      padding: 10px;
+      margin-bottom: 85px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #f0f0f0;
+    }
+
+    .product-info {
+      padding: 12px 10px;
+    }
+
+    .product-info h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .price {
+      color: #d70018;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 6px 0 10px;
+    }
+
+    .sale-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #d70018;
+      color: white;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .btn-add {
+      width: 100%;
+      padding: 8px 0;
+      background: #d70018;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-add:hover {
+      background: #b50012;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #eee;
+      padding: 8px 0 12px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.03);
+    }
+
+    .bottom-nav div {
+      font-size: 12px;
+      text-align: center;
+      color: #555;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+      backdrop-filter: blur(2px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      position: relative;
+    }
+
+    .modal-header img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #f0f0f0;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.9);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .modal-body {
+      padding: 20px 18px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .modal-price {
+      color: #d70018;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 8px 0 12px;
+    }
+
+    .modal-desc {
+      color: #555;
+      line-height: 1.5;
+      margin: 15px 0 20px;
+      font-size: 15px;
+      border-top: 1px solid #eee;
+      padding-top: 16px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      flex: 2;
+      background: #d70018;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      flex: 1;
+      background: white;
+      border: 1.5px solid #d70018;
+      color: #d70018;
+      padding: 14px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: #b50012; }
+    .btn-outline:hover { background: #fff0f0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <span>📍 Hà Nội</span>
+    <span>📞 1800 2097</span>
+  </div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="🔍 Bạn cần tìm gì?">
+  </div>
+</header>
+
+<div class="banner"></div>
+
+<div class="services">
+  <div>🚚<br>Giao nhanh</div>
+  <div>💳<br>Trả góp</div>
+  <div>🛡️<br>Bảo hành</div>
+  <div>🎁<br>Ưu đãi</div>
+</div>
+
+<div class="categories">
+  <div class="category">📱 Điện thoại</div>
+  <div class="category">💻 Laptop</div>
+  <div class="category">🎧 Tai nghe</div>
+  <div class="category">⌚ Đồng hồ</div>
+  <div class="category">🖱️ Phụ kiện</div>
+</div>
+
+<h3 class="section-title">🔥 Sản phẩm nổi bật</h3>
+
+<div class="products" id="products"></div>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <div>🏠<br>Trang chủ</div>
+  <div>📂<br>Danh mục</div>
+  <div>🏬<br>Cửa hàng</div>
+  <div>🛒<br>Giỏ hàng</div>
+  <div>👤<br>Tài khoản</div>
+</div>
+
+<!-- MODAL CHI TIẾT -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <img id="modalImg" src="" alt="product">
+      <span class="modal-close" id="closeModal">&times;</span>
+    </div>
+    <div class="modal-body">
+      <h2 class="modal-title" id="modalName"></h2>
+      <div class="modal-price" id="modalPrice"></div>
+      <div class="modal-desc" id="modalDesc">
+        Sản phẩm chính hãng, bảo hành 12 tháng.
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="modalAddToCart">🛒 Thêm vào giỏ</button>
+        <button class="btn-outline" id="modalBuyNow">Mua ngay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ========== DỮ LIỆU SẢN PHẨM ==========
+  const products = [
+    { id: 1, name: "iPhone 15", price: 20000000, sale: "-10%", img: "https://picsum.photos/id/1/300/200", desc: "iPhone 15 với Dynamic Island, chip A16 Bionic, camera 48MP." },
+    { id: 2, name: "iPhone 14 Pro", price: 18000000, sale: "-15%", img: "https://picsum.photos/id/20/300/200", desc: "iPhone 14 Pro màn hình Always-On, chip A16, camera 48MP." },
+    { id: 3, name: "Samsung S23", price: 17000000, sale: "-12%", img: "https://picsum.photos/id/26/300/200", desc: "Samsung Galaxy S23 với Snapdragon 8 Gen 2, màn hình Dynamic AMOLED 2X." },
+    { id: 4, name: "Xiaomi 13", price: 12000000, sale: "-20%", img: "https://picsum.photos/id/30/300/200", desc: "Xiaomi 13 Leica camera, Snapdragon 8 Gen 2, sạc nhanh 67W." },
+    { id: 5, name: "Macbook Air M2", price: 25000000, sale: "-8%", img: "https://picsum.photos/id/42/300/200", desc: "MacBook Air M2 siêu mỏng nhẹ, pin 18 tiếng, màn hình Liquid Retina." },
+    { id: 6, name: "Laptop Dell XPS", price: 22000000, sale: "-10%", img: "https://picsum.photos/id/48/300/200", desc: "Dell XPS 13 màn hình InfinityEdge, Intel Core i7, siêu nhẹ." },
+    { id: 7, name: "Tai nghe Sony", price: 3000000, sale: "-25%", img: "https://picsum.photos/id/60/300/200", desc: "Sony WH-1000XM5 chống ồn chủ động, âm thanh Hi-Res." },
+    { id: 8, name: "AirPods Pro", price: 5000000, sale: "-18%", img: "https://picsum.photos/id/84/300/200", desc: "AirPods Pro 2 chống ồn thích ứng, chip H2, âm thanh sống động." },
+    { id: 9, name: "Chuột Gaming", price: 500000, sale: "-30%", img: "https://picsum.photos/id/96/300/200", desc: "Chuột gaming Logitech G102 Lightsync, cảm biến 8000DPI." },
+    { id: 10, name: "Bàn phím cơ", price: 1200000, sale: "-20%", img: "https://picsum.photos/id/120/300/200", desc: "Bàn phím cơ Akko switch, LED RGB, chống nước." },
+    { id: 11, name: "Apple Watch", price: 8000000, sale: "-10%", img: "https://picsum.photos/id/160/300/200", desc: "Apple Watch Series 9, theo dõi sức khỏe, chống nước." },
+    { id: 12, name: "iPad Pro", price: 15000000, sale: "-12%", img: "https://picsum.photos/id/180/300/200", desc: "iPad Pro M2 11 inch, màn hình Liquid Retina XDR."}
+];
+
+const productsContainer = document.getElementById("products");
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImg");
+const modalName = document.getElementById("modalName");
+const modalPrice = document.getElementById("modalPrice");
+const modalDesc = document.getElementById("modalDesc");
+const closeModal = document.getElementById("closeModal");
+const modalAddToCart = document.getElementById("modalAddToCart");
+const modalBuyNow = document.getElementById("modalBuyNow");
+
+  let currentProduct = null;
+
+  // Hàm xử lý lỗi ảnh – dùng ảnh dự phòng
+  function handleImageError(imgElement) {
+    imgElement.onerror = null; // tránh loop
+    imgElement.src = "https://picsum.photos/id/200/300/200?grayscale";
+  }
+
+  // Render danh sách sản phẩm
+  function render(list) {
+    productsContainer.innerHTML = "";
+    list.forEach(p => {
+      const productDiv = document.createElement("div");
+      productDiv.className = "product";
+      productDiv.setAttribute("data-id", p.id);
+      productDiv.innerHTML = `
+        <div style="position:relative">
+          <img src="${p.img}" alt="${p.name}" onerror="handleImageError(this)">
+          <span class="sale-badge">${p.sale}</span>
+        </div>
+        <div class="product-info">
+          <h4>${p.name}</h4>
+          <p class="price">${p.price.toLocaleString()}đ</p>
+          <button class="btn-add" data-id="${p.id}">Thêm vào giỏ</button>
+        </div>
+      `;
+      
+      // Click mở modal (trừ khi click vào nút thêm)
+      productDiv.addEventListener("click", (e) => {
+        if (e.target.classList.contains("btn-add")) return;
+        openProductModal(p);
+      });
+
+      const addBtn = productDiv.querySelector(".btn-add");
+      addBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        alert(`✅ Đã thêm ${p.name} vào giỏ hàng`);
+      });
+
+      productsContainer.appendChild(productDiv);
+    });
+  }
+
+  // Mở modal chi tiết
+  function openProductModal(product) {
+    currentProduct = product;
+    modalImg.src = product.img;
+    modalImg.onerror = () => handleImageError(modalImg);
+    modalName.textContent = product.name;
+    modalPrice.textContent = product.price.toLocaleString() + "đ";
+    modalDesc.textContent = product.desc || "Sản phẩm chính hãng, bảo hành 12 tháng. Hỗ trợ trả góp 0%.";
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModalFunc() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Tìm kiếm
+  document.getElementById("search").addEventListener("input", function(e) {
+    const key = e.target.value.toLowerCase();
+    const filtered = products.filter(p => p.name.toLowerCase().includes(key));
+    render(filtered);
+  });
+
+  // Đóng modal
+  closeModal.addEventListener("click", closeModalFunc);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModalFunc();
+  });
+
+  modalAddToCart.addEventListener("click", () => {
+    if (currentProduct) {
+      alert(`🛒 Đã thêm ${currentProduct.name} vào giỏ hàng`);
+      closeModalFunc();
+    }
+  });
+
+  modalBuyNow.addEventListener("click", () => {
+    if (currentProduct) {
+      alert(`⚡ Mua ngay ${currentProduct.name} với giá ${currentProduct.price.toLocaleString()}đ`);
+      closeModalFunc();
+    }
+  });
+
+  // Render lần đầu
+  render(products);
+</script>
+</body>
+</html>
