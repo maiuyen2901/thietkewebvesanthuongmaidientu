@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Website thương mại điện tử</title>
+</head>
+
+<body style="background:#f5f5f5; font-family:Arial;">
+
+
+<div style="background:white; margin:10px; padding:20px; border-radius:10px; line-height:1.6;">
+  <h2 style="color:#d70018; margin-top:0;">ℹ️ Giới thiệu Website</h2>
+
+  <p>
+    Sàn thương mại điện tử là nền tảng trực tuyến giúp người mua và người bán kết nối, trao đổi và thực hiện giao dịch hàng hóa hoặc dịch vụ một cách nhanh chóng, an toàn và tiện lợi.
+  </p>
+
+  <ul>
+    <li>Tìm kiếm và so sánh sản phẩm từ nhiều nhà cung cấp</li>
+    <li>Đọc đánh giá từ khách hàng trước</li>
+    <li>Đặt hàng và thanh toán trực tuyến an toàn</li>
+    <li>Theo dõi trạng thái đơn hàng theo thời gian thực</li>
+  </ul>
+</div>
+
+
+
+<div style="background:white; margin:10px; padding:20px; border-radius:10px; line-height:1.6;">
+  <h2 style="color:#d70018; margin-top:0;">📞 Thông tin liên hệ</h2>
+
+  <p>Khách hàng có thể liên hệ với chúng tôi qua các kênh sau:</p>
+
+  <ul>
+    <li>📍 Địa chỉ: 123 Đường Cầu Giấy, Hà Nội</li>
+    <li>📧 Email: support@website.com</li>
+    <li>📞 Hotline: 1900 xxxx</li>
+    <li>⏰ Giờ làm việc: 08:00 - 22:00</li>
+  </ul>
+
+  <p>Chúng tôi hỗ trợ các vấn đề về đơn hàng, thanh toán, khiếu nại và hợp tác.</p>
+</div>
+
+
+
+<div style="background:white; margin:10px; padding:20px; border-radius:10px; line-height:1.6; margin-bottom:100px;">
+  <h2 style="color:#d70018; margin-top:0;">✉️ Gửi phản hồi</h2>
+
+  <p>
+    Website luôn khuyến khích người dùng gửi phản hồi để cải thiện chất lượng dịch vụ.
+  </p>
+
+  <form id="feedbackForm">
+
+    <label>Họ và tên:</label>
+    <input type="text" required style="width:100%; padding:10px; margin:5px 0 10px; border:1px solid #ddd; border-radius:5px;">
+
+    <label>Email:</label>
+    <input type="email" required style="width:100%; padding:10px; margin:5px 0 10px; border:1px solid #ddd; border-radius:5px;">
+
+    <label>Số điện thoại:</label>
+    <input type="tel" style="width:100%; padding:10px; margin:5px 0 10px; border:1px solid #ddd; border-radius:5px;">
+
+    <label>Chủ đề phản hồi:</label><br>
+    <label><input type="radio" name="topic" required> Hỗ trợ đơn hàng</label><br>
+    <label><input type="radio" name="topic"> Khiếu nại sản phẩm</label><br>
+    <label><input type="radio" name="topic"> Góp ý dịch vụ</label><br>
+    <label><input type="radio" name="topic"> Khác</label><br><br>
+
+    <label>Nội dung phản hồi:</label>
+    <textarea rows="5" required
+      style="width:100%; padding:10px; margin:5px 0 10px; border:1px solid #ddd; border-radius:5px;"></textarea>
+
+    <label>Đánh giá:</label><br>
+    <label><input type="radio" name="rating"> ⭐</label>
+    <label><input type="radio" name="rating"> ⭐⭐</label>
+    <label><input type="radio" name="rating"> ⭐⭐⭐</label>
+    <label><input type="radio" name="rating"> ⭐⭐⭐⭐</label>
+    <label><input type="radio" name="rating"> ⭐⭐⭐⭐⭐</label>
+
+    <br><br>
+
+    <button type="submit"
+      style="background:#4caf50; color:white; padding:10px 15px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">
+      GỬI PHẢN HỒI
+    </button>
+  </form>
+
+  <p style="margin-top:15px; font-size:14px; color:gray;">
+    Sau khi gửi, hệ thống sẽ phản hồi trong vòng 24–48 giờ làm việc.
+  </p>
+</div>
+
+
+
+<script>
+  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Cảm ơn bạn đã gửi phản hồi! Chúng tôi sẽ phản hồi trong 24–48 giờ.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>

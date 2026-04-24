@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CellphoneS - Trang chủ</title>
+  <title>SpeedTech - Trang chủ</title>
   <style>
     * {
       box-sizing: border-box;
@@ -182,7 +182,6 @@
       color: #555;
     }
 
-    /* MODAL */
     .modal {
       display: none;
       position: fixed;
@@ -338,17 +337,16 @@
 <h3 class="section-title">🔥 Sản phẩm nổi bật</h3>
 
 <div class="products" id="products"></div>
-
-<!-- Bottom Navigation -->
 <div class="bottom-nav">
   <div>🏠<br>Trang chủ</div>
   <div>📂<br>Danh mục</div>
   <div>🏬<br>Cửa hàng</div>
   <div>🛒<br>Giỏ hàng</div>
   <div>👤<br>Tài khoản</div>
+
 </div>
 
-<!-- MODAL CHI TIẾT -->
+
 <div class="modal" id="productModal">
   <div class="modal-content">
     <div class="modal-header">
@@ -370,20 +368,19 @@
 </div>
 
 <script>
-  // ========== DỮ LIỆU SẢN PHẨM ==========
+
   const products = [
-    { id: 1, name: "iPhone 15", price: 20000000, sale: "-10%", img: "https://picsum.photos/id/1/300/200", desc: "iPhone 15 với Dynamic Island, chip A16 Bionic, camera 48MP." },
-    { id: 2, name: "iPhone 14 Pro", price: 18000000, sale: "-15%", img: "https://picsum.photos/id/20/300/200", desc: "iPhone 14 Pro màn hình Always-On, chip A16, camera 48MP." },
-    { id: 3, name: "Samsung S23", price: 17000000, sale: "-12%", img: "https://picsum.photos/id/26/300/200", desc: "Samsung Galaxy S23 với Snapdragon 8 Gen 2, màn hình Dynamic AMOLED 2X." },
-    { id: 4, name: "Xiaomi 13", price: 12000000, sale: "-20%", img: "https://picsum.photos/id/30/300/200", desc: "Xiaomi 13 Leica camera, Snapdragon 8 Gen 2, sạc nhanh 67W." },
-    { id: 5, name: "Macbook Air M2", price: 25000000, sale: "-8%", img: "https://picsum.photos/id/42/300/200", desc: "MacBook Air M2 siêu mỏng nhẹ, pin 18 tiếng, màn hình Liquid Retina." },
-    { id: 6, name: "Laptop Dell XPS", price: 22000000, sale: "-10%", img: "https://picsum.photos/id/48/300/200", desc: "Dell XPS 13 màn hình InfinityEdge, Intel Core i7, siêu nhẹ." },
-    { id: 7, name: "Tai nghe Sony", price: 3000000, sale: "-25%", img: "https://picsum.photos/id/60/300/200", desc: "Sony WH-1000XM5 chống ồn chủ động, âm thanh Hi-Res." },
-    { id: 8, name: "AirPods Pro", price: 5000000, sale: "-18%", img: "https://picsum.photos/id/84/300/200", desc: "AirPods Pro 2 chống ồn thích ứng, chip H2, âm thanh sống động." },
-    { id: 9, name: "Chuột Gaming", price: 500000, sale: "-30%", img: "https://picsum.photos/id/96/300/200", desc: "Chuột gaming Logitech G102 Lightsync, cảm biến 8000DPI." },
-    { id: 10, name: "Bàn phím cơ", price: 1200000, sale: "-20%", img: "https://picsum.photos/id/120/300/200", desc: "Bàn phím cơ Akko switch, LED RGB, chống nước." },
-    { id: 11, name: "Apple Watch", price: 8000000, sale: "-10%", img: "https://picsum.photos/id/160/300/200", desc: "Apple Watch Series 9, theo dõi sức khỏe, chống nước." },
-    { id: 12, name: "iPad Pro", price: 15000000, sale: "-12%", img: "https://picsum.photos/id/180/300/200", desc: "iPad Pro M2 11 inch, màn hình Liquid Retina XDR."}
+    
+    { id: 1, name: "iPhone 15", price: 20000000, sale: "-10%", img: "https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large_2x.jpg", desc: "Cổng USB tiện lợi, chung dây sạc với Mac/iPad, Camera 48MP chụp ảnh sắc nét gấp đôi iPhone 14, Pin khoẻ, chip A16 mát máy, dùng 4 năm vẫn mượt mà." },
+    { id: 2, name: "iPhone 14 Pro", price: 18000000, sale: "-15%", img: "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-space-black-220907_inline.jpg.large_2x.jpg", desc: "iPhone 14 Pro màn hình AlMàn hình 120Hz siêu mượt (ProMotion) và Dynamic Island, Giá mềm hơn 15 Pro tới 5-6 triệu nhưng trải nghiệm không khác biệt nhiều, Thiết kế thép sang trọng, nhận diện đẳng cấp." },
+    { id: 3, name: "Samsung S23", price: 17000000, sale: "-12%", img: "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/p/h/photo_2024-12-26_16-48-25_2.jpg", desc: "Flagship Android nhỏ gọn và nhẹ nhất thị trường, Snapdragon 8 Gen 2 for Galaxy chơi game mát, ít lag, Màn hình Dynamic AMOLED 2X sáng rực, xem phim Netflix cực đã." },
+    { id: 4, name: "Xiaomi 13", price: 12000000, sale: "-20%", img: "https://i02.appmifile.com/158_operator_sg/08/02/2023/3436112edf5d104a191c22576c6506bf.png?f=webp", desc: "Xiaomi 13 Leica camera, Snapdragon 8 Gen 2, sạc nhanh 67W, Chất ảnh Leica màu điện ảnh không cần chỉnh sửa hậu kỳ, Màn hình 6.36 vàng trong làng máy Android cao cấp cỡ nhỏ, Pin 4500mAh trâu hơn hẳn S23 cùng cỡ." },
+    { id: 5, name: "Macbook Air M2", price: 25000000, sale: "-8%", img: "https://cdni.dienthoaivui.com.vn/x420,webp,q100/https://dashboard.dienthoaivui.com.vn/uploads/wp-content/uploads/images/products/247478/thay-pin-macbook-pro-m2-max-2022-16%20inch-a2780-gen-a-nguyen-khung-17483278897349.jpg", desc: "MacBook Air M2 siêu mỏng nhẹ, pin 18 tiếng, màn hình Liquid Retina, Nặng chỉ 1.24kg, mỏng hơn quyển vở - bỏ túi tote đi khắp nơi, Màn hình Liquid Retina 13.6 to hơn, viền mỏng, sáng 500 nits, Mở máy tức thì, pin dùng 12-14 tiếng văn phòng không lo sạc." },
+    { id: 6, name: "Laptop Dell XPS", price: 22000000, sale: "-10%", img: "https://hungphatlaptop.com/wp-content/uploads/2026/01/DELL-XPS-14-DA14260-2026-H1.jpeg", desc: "Dell XPS 13 màn hình InfinityEdge, Intel Core i7, siêu nhẹ, Màn hình OLED 2.8K cảm ứng 120Hz đẹp nhất phân khúc Windows, Khung máy CNC nguyên khối cứng cáp, sang như MacBook Pro, Hiệu năng Intel Core Ultra 7 mạnh, chạy AI và đồ họa 2D mượt." },
+    { id: 7, name: "Tai nghe Sony", price: 3000000, sale: "-25%", img: "https://hdradio.vn/upload/hinhanh/tai-nghe/Sony/wf-1000xm6/wf-1000xm6-avt.webp", desc: "Sony WH-1000XM5 chống ồn chủ động, âm thanh Hi-Res, Vua chống ồn True Wireless - ngồi quán ồn nghe như ở phòng riêng, Chất âm chi tiết, tùy chỉnh EQ sâu bằng app Sony, Kết nối 2 thiết bị cùng lúc, chuyển đổi iPhone/Android không độ trễ." },
+    { id: 8, name: "AirPods Pro", price: 5000000, sale: "-18%", img: "https://bizweb.dktcdn.net/thumb/1024x1024/100/021/944/products/d6db8801c8e62eb877f7.jpg?v=1572507895260", desc: "AirPods Pro 2 chống ồn thích ứng, chip H2, âm thanh sống động, Hệ sinh thái Apple kết nối thần tốc, chuyển đổi giữa iPhone/Mac mượt mà, Chống ồn thích ứng tự động tăng/giảm theo môi trường, Hộp sạc tích hợp loa tìm kiếm, pin lâu và sạc không dây." },
+    { id: 9, name: "Apple Watch", price: 8000000, sale: "-15%", img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s11-case-unselect-gallery-1-202509_GEO_VN_FMT_WHH?wid=752&hei=720&fmt=p-jpg&qlt=80&.v=WldDSmZlQ1ladGVha0lMWUJJK2M4ZHlVRllKam5abHNZRGludXlMbytKNHJIb251TTNHZXFNNGtpZm1kN3hmRHdNcFdFNWZtdVQ0djE1UTRwRU5lcXlaSE1Qa0haZTFvMWVJTkxjaWwxSnlpeUlldENlcWUwU1RFbkFmYitxUFRwOU90TDlNMDBLdHFUaVVCQ0hiUGVR", desc: "Apple Watch Series 9, theo dõi sức khỏe, chống nước, Theo dõi sức khỏe toàn diện: Nhịp tim, ECG, đo oxy máu, giấc ngủ, Nhận thông báo tin nhắn/cuộc gọi nhanh không cần lôi iPhone ra, Mặt đồng hồ đa dạng, thay dây cực nhanh phù hợp mọi phong cách." },
+    { id: 10, name: "iPad Pro", price: 15000000, sale: "-12%", img: "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-finish-unselect-gallery-1-202405_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=80&.v=YXpaUEtKWGhlNnNrVGZkTEo4T0xsN2dzSmpObkZCM3MrNmJ5SkhESlNDaUNOeTJ0NG53OUFoWllqZzhOc3p1UzN0bWR6ME9RYmIrVG9PSXZFalM2aHdBb0pjWml6bllCL0Y5a1RKc2gxZjlBcWhWSzMycEllY3d4RGgzS0xYcGJjSVB1SytHWEVJU1BQRDRHRFJtOWRR&traceId=1", desc: "iPad Pro M2 11 inch, màn hình Liquid Retina XDR, Chip M4 mạnh ngang MacBook Pro, chỉnh video 4K ProRes mượt, Màn hình Ultra Retina XDR Tandem OLED sáng và đen sâu tuyệt đối, Hỗ trợ Apple Pencil Pro với cảm ứng xoay và phản hồi xúc giác mới."}
 ];
 
 const productsContainer = document.getElementById("products");
@@ -398,13 +395,13 @@ const modalBuyNow = document.getElementById("modalBuyNow");
 
   let currentProduct = null;
 
-  // Hàm xử lý lỗi ảnh – dùng ảnh dự phòng
+  
   function handleImageError(imgElement) {
-    imgElement.onerror = null; // tránh loop
+    imgElement.onerror = null; 
     imgElement.src = "https://picsum.photos/id/200/300/200?grayscale";
   }
 
-  // Render danh sách sản phẩm
+  
   function render(list) {
     productsContainer.innerHTML = "";
     list.forEach(p => {
@@ -423,7 +420,7 @@ const modalBuyNow = document.getElementById("modalBuyNow");
         </div>
       `;
       
-      // Click mở modal (trừ khi click vào nút thêm)
+      
       productDiv.addEventListener("click", (e) => {
         if (e.target.classList.contains("btn-add")) return;
         openProductModal(p);
@@ -439,7 +436,7 @@ const modalBuyNow = document.getElementById("modalBuyNow");
     });
   }
 
-  // Mở modal chi tiết
+  
   function openProductModal(product) {
     currentProduct = product;
     modalImg.src = product.img;
@@ -456,14 +453,14 @@ const modalBuyNow = document.getElementById("modalBuyNow");
     document.body.style.overflow = "";
   }
 
-  // Tìm kiếm
+  
   document.getElementById("search").addEventListener("input", function(e) {
     const key = e.target.value.toLowerCase();
     const filtered = products.filter(p => p.name.toLowerCase().includes(key));
     render(filtered);
   });
 
-  // Đóng modal
+  
   closeModal.addEventListener("click", closeModalFunc);
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModalFunc();
@@ -483,7 +480,7 @@ const modalBuyNow = document.getElementById("modalBuyNow");
     }
   });
 
-  // Render lần đầu
+
   render(products);
 </script>
 </body>
