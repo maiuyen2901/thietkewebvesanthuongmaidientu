@@ -1,91 +1,266 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <title>Thanh toán</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .header {
+            background: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+        .box {
+            background: white;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .total {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn {
+            background: red;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">Thanh toán đơn hàng</div>
+
+<div class="container">
+
+    <div class="box">
+        <h3>Thông tin khách hàng</h3>
+        <input type="text" placeholder="Họ và tên">
+        <input type="text" placeholder="Số điện thoại">
+        <input type="text" placeholder="Địa chỉ nhận hàng">
+    </div>
+
+    <div class="box">
+        <h3>Phương thức thanh toán</h3>
+        <select>
+            <option>Thanh toán khi nhận hàng (COD)</option>
+            <option>Chuyển khoản</option>
+        </select>
+    </div>
+
+    <div class="box">
+        <h3>Sản phẩm</h3>
+        <div class="product">
+            <span>iPhone 15 x1</span>
+            <span>20,000,000đ</span>
+        </div>
+        <div class="product">
+            <span>AirPods Pro x1</span>
+            <span>5,000,000đ</span>
+        </div>
+        <div class="total">Tổng: 25,000,000đ</div>
+    </div>
+
+    <button class="btn">Đặt hàng</button>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
 <meta charset="UTF-8">
-<title>Thanh toán</title>
+<title>Footer</title>
+
 <style>
-body {font-family: Arial; margin:0; background:#f5f5f5;}
-header {background:#d70018; color:#fff; padding:15px; text-align:center;}
-.container {padding:15px;}
-.card {background:#fff; border-radius:10px; padding:15px; margin-bottom:15px;}
-input, select {
-  width:100%; padding:10px; margin-top:8px;
-  border-radius:5px; border:1px solid #ccc;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
-.product {display:flex; justify-content:space-between; margin-bottom:10px;}
-.total {font-size:18px; font-weight:bold; color:#d70018;}
-button {
-  width:100%; padding:12px; background:#d70018;
-  color:#fff; border:none; border-radius:8px; font-size:16px;
+
+/* FOOTER */
+.footer {
+    background: #f5f5f5;
+    padding: 30px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* TITLES */
+.footer h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.footer p,
+.footer li {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* PAYMENT */
+.payment img {
+    width: 50px;
+    margin: 5px;
+}
+
+/* FORM */
+.form-box {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* SOCIAL */
+.social img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+/* APP */
+.app img {
+    width: 120px;
+    margin: 5px 0;
+}
+
+/* RIGHT BOX */
+.box img {
+    width: 150px;
+    margin: 5px 0;
 }
 </style>
 </head>
 
 <body>
-<header>Thanh toán đơn hàng</header>
 
+<footer class="footer">
 <div class="container">
 
-  <div class="card">
-    <h3>Thông tin khách hàng</h3>
-    <input placeholder="Họ và tên">
-    <input placeholder="Số điện thoại">
-    <input placeholder="Địa chỉ nhận hàng">
-  </div>
+  
+    <div>
+        <h3>Tổng đài hỗ trợ miễn phí</h3>
+        <p>Mua hàng - bảo hành <b>1800.2044</b></p>
+        <p>Khiếu nại <b>1800.2063</b></p>
 
-  <div class="card">
-    <h3>Phương thức thanh toán</h3>
-    <select>
-      <option>Thanh toán khi nhận hàng (COD)</option>
-      <option>Chuyển khoản ngân hàng</option>
-      <option>Ví điện tử (Momo, ZaloPay)</option>
-    </select>
-  </div>
+        <h3>Phương thức thanh toán</h3>
+        <div class="payment">
+             <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" width="40">
+        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-MoMo-Square.png" width="50">
+        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png" width="50">
+        </div>
 
-  <div class="card">
-    <h3>Sản phẩm</h3>
-    <div id="cart"></div>
-    <hr>
-    <p class="total">Tổng: <span id="total"></span></p>
-  </div>
+        <h3>Đăng ký nhận tin</h3>
+        <div class="form-box">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Số điện thoại">
+            <button>ĐĂNG KÝ NGAY</button>
+        </div>
+    </div>
 
-  <button onclick="checkout()">Đặt hàng</button>
+  
+    <div>
+        <h3>Thông tin về chính sách</h3>
+        <ul>
+            <li>Mua hàng Online</li>
+            <li>Trả góp</li>
+            <li>Chính sách giao hàng</li>
+            <li>Chính sách đổi trả</li>
+            <li>Tra cứu hóa đơn</li>
+        </ul>
+    </div>
 
+    <!-- CỘT 3 -->
+    <div>
+        <h3>Dịch vụ và thông tin khác</h3>
+        <ul>
+            <li>Khách hàng doanh nghiệp</li>
+            <li>Ưu đãi thanh toán</li>
+            <li>Chính sách bảo mật</li>
+            <li>Tuyển dụng</li>
+        </ul>
+
+        <h3>Tải app</h3>
+        <div class="app">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="120">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" width="120">
+        </div>
+    </div>
+    <div>
+        <h3>Kết nối với chúng tôi</h3>
+        <div class="social">
+             <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="40">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="30">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" width="30">
+        </div>
+
+        <h3>Website thành viên</h3>
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4r0LR05EvIorqANTp150kZPRL_xpv9LoK7Q&s"
+            <img src="https://cdn.cellphones.com.vn/media/logo/dienthoaivui.png" alt="dienthoaivui"
+  <img src="https://cdn.cellphones.com.vn/media/logo/care.png" alt="careS">
+ <img src="https://cares.vn/wp-content/uploads/2023/10/sforum-a.png" alt="sforum">
+ <img src="https://schannel.vn/wp-content/uploads/2020/07/logo-Schannel-Network-crop.png">
+ <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/01/CareS-1-2.jpg">
+    
 </div>
 
-<script>
-// giả lập giỏ hàng (có thể lấy từ localStorage sau)
-const cart = [
-  {name:"iPhone 15", price:20000000, qty:1},
-  {name:"AirPods Pro", price:5000000, qty:1}
-];
-
-function renderCart() {
-  const box = document.getElementById("cart");
-  const totalEl = document.getElementById("total");
-  let total = 0;
-
-  box.innerHTML = "";
-
-  cart.forEach(p => {
-    total += p.price * p.qty;
-    box.innerHTML += `
-      <div class="product">
-        <span>${p.name} x${p.qty}</span>
-        <span>${(p.price*p.qty).toLocaleString()}đ</span>
-      </div>
-    `;
-  });
-
-  totalEl.innerText = total.toLocaleString() + "đ";
-}
-
-function checkout() {
-  alert("Đặt hàng thành công! 🎉");
-}
-
-renderCart();
-</script>
+</div>
+</footer>
 
 </body>
 </html>
