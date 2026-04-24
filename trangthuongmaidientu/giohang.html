@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>CellphoneS Home</title>
+<title>SpeedTech</title>
 <style>
 body { margin:0; font-family:Arial; background:#f5f5f5; }
 header { background:#d70018; color:white; padding:10px; }
@@ -54,23 +54,35 @@ button { width:100%; padding:6px; background:#d70018; color:white; border:none; 
 <div class="products" id="products"></div>
 
 <div class="bottom-nav">
-  <div>🏠<br>Trang chủ</div>
+  <div>🏠<br>Home</div>
   <div onclick="toggleCart()">🛒<br>Giỏ hàng</div>
 </div>
-
-<!-- GIỎ HÀNG -->
+<div class="bottom-nav">
+  <div>📂<br>Danh mục</div>
+  <div>🏬<br>Cửa hàng</div>
+</div>
 <div id="cartBox" style="display:none; position:fixed; right:10px; top:60px; width:300px; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2); max-height:400px; overflow:auto;">
   <h3>Giỏ hàng</h3>
   <div id="cartItems"></div>
   <p><b>Tổng: <span id="total">0</span>đ</b></p>
 </div>
+  <div>👤<br>Tài khoản</div>
 
 <script>
 const products = [
-  {name:"iPhone 15", price:20000000, img:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"},
-  {name:"Samsung S23", price:17000000, img:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf"},
-  {name:"Macbook Air M2", price:25000000, img:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8"}
+  {name:"iPhone 15", price:20000000, old:22000000, sale:"-10%", img:"https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/article/Apple-iPhone-15-Pro-lineup-color-lineup-geo-230912_big.jpg.large_2x.jpg"},
+  {name:"Samsung S23", price:18000000, old:20000000, sale:"-12%", img:"https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/p/h/photo_2024-12-26_16-48-25_2.jpg"},
+  {name:"Macbook Air", price:25000000, old:27000000, sale:"-8%", img:"https://cdni.dienthoaivui.com.vn/x420,webp,q100/https://dashboard.dienthoaivui.com.vn/uploads/wp-content/uploads/images/products/247478/thay-pin-macbook-pro-m2-max-2022-16%20inch-a2780-gen-a-nguyen-khung-17483278897349.jpg"},
+  {name:"Tai nghe Sony", price:3000000, old:4000000, sale:"-25%", img:"https://hdradio.vn/upload/hinhanh/tai-nghe/Sony/wf-1000xm6/wf-1000xm6-avt.webp"},
+  {name:"iphone 14 Pro", price:18000000, img:"https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-Pro-iPhone-14-Pro-Max-space-black-220907_inline.jpg.large_2x.jpg"},
+  {name:"iPad Pro", price:15000000, img:"https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-finish-unselect-gallery-1-202405_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=80&.v=YXpaUEtKWGhlNnNrVGZkTEo4T0xsN2dzSmpObkZCM3MrNmJ5SkhESlNDaUNOeTJ0NG53OUFoWllqZzhOc3p1UzN0bWR6ME9RYmIrVG9PSXZFalM2aHdBb0pjWml6bllCL0Y5a1RKc2gxZjlBcWhWSzMycEllY3d4RGgzS0xYcGJjSVB1SytHWEVJU1BQRDRHRFJtOWRR&traceId=1"},
+  {name:"Apple Watch", price:8000000, img:"https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b"},
+  {name:"Laptop Dell XPS", price:22000000, img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853"},
+  {name:"Chuột Gaming", price:500000, img:"https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/s11-case-unselect-gallery-1-202509_GEO_VN_FMT_WHH?wid=752&hei=720&fmt=p-jpg&qlt=80&.v=WldDSmZlQ1ladGVha0lMWUJJK2M4ZHlVRllKam5abHNZRGludXlMbytKNHJIb251TTNHZXFNNGtpZm1kN3hmRHdNcFdFNWZtdVQ0djE1UTRwRU5lcXlaSE1Qa0haZTFvMWVJTkxjaWwxSnlpeUlldENlcWUwU1RFbkFmYitxUFRwOU90TDlNMDBLdHFUaVVCQ0hiUGVR"},
+  {name:"Bàn phím cơ", price:1200000, img:"https://images.unsplash.com/photo-1518770660439-4636190af475"},
+  {name:"Xaiaomi 13", price:16000000, img:"https://i02.appmifile.com/158_operator_sg/08/02/2023/3436112edf5d104a191c22576c6506bf.png?f=webp"}
 ];
+
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -138,7 +150,6 @@ function toggleCart() {
   renderCart();
 }
 
-// tìm kiếm
 
 document.getElementById("search").addEventListener("input", function(){
   const key = this.value.toLowerCase();
